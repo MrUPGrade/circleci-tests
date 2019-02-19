@@ -2,17 +2,25 @@ version: 2.1
 description: CircleCI tests
 
 jobs:
-  build:
+  job1_test:
     docker:
-    - image: mrupgrade/kta-webapp-flask
-    - image: mrupgrade/kta-webapp-gunicorn
+    - image: debian
     steps:
     - checkout
     - run: echo "hello world"
 
+  job_echo:
+    docker:
+    - image: debian
+    steps:
+    - run: "hello from echo job"
 
-workflow:
+_job_list: &jobList
+- job_echo
+
+workflows:
   version: 2.1
   pipe1:
     jobs:
-    - build
+    - job1_test
+    - job_echo
