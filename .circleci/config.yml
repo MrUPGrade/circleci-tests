@@ -1,6 +1,9 @@
 version: 2.1
 description: CircleCI tests
 
+orbs:
+  ec: mrupgrade/echo-test@dev:0.0.1
+
 jobs:
   job1_test:
     docker:
@@ -9,18 +12,10 @@ jobs:
     - checkout
     - run: echo "hello world"
 
-  job_echo:
-    docker:
-    - image: debian
-    steps:
-    - run: echo "hello from echo job"
-
-_job_list: &jobList
-- job_echo
 
 workflows:
   version: 2.1
   pipe1:
     jobs:
     - job1_test
-    - job_echo
+    - ec/echo
