@@ -10,3 +10,9 @@ jobs:
     - checkout
     - run: echo "hello world"
 
+
+workflow:
+  version: 2.1
+  pipe1:
+    jobs:
+    - build
