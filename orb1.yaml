@@ -1,0 +1,11 @@
+version: 2.1
+executors:
+  docker_debian:
+    docker:
+    - image: debian
+
+jobs:
+  echo:
+    executor: docker_debian
+    steps:
+    - run: echo "Hello world"
