@@ -1,8 +1,8 @@
 version: 2.1
 description: CircleCI tests
 
-orbs:
-  ec: mrupgrade/echo-test@dev:0.0.1
+#orbs:
+#  ec: mrupgrade/echo-test@dev:0.0.1
 
 jobs:
   job1_test:
@@ -19,5 +19,5 @@ workflows:
   pipe1:
     jobs:
     - job1_test
-    - ec/echo
-    -
+#    - ec/echo
+#    -
